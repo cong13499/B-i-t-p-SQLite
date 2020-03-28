@@ -1,5 +1,6 @@
 package com.example.a27320;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     EditText edtHoTen, edtNS, edtTruong;
     RadioButton rdNam, rdNu;
     CheckBox cbTheThao, cbDuLich, cbDocSach;
-    Button btNhap, btNhapLai;
+    Button btNhap, btNhapLai, btXemDsSv;
     SinhVienDataBase db;
 
     @Override
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         btNhap = findViewById(R.id.btNhap);
         btNhapLai = findViewById(R.id.btNhapLai);
+        btXemDsSv = findViewById(R.id.btXemDsSv);
 
         db = new SinhVienDataBase(this);
 
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             } if(cbDocSach.isChecked()){
                 sothich +=","+ cbDocSach.getText().toString();
             }
+
             SinhVienModel svThem = new SinhVienModel(hoTen, namSinh, truong, sothich,gt);
             if (svThem!=null){
                 db.ThemSinhVien(svThem);
@@ -80,5 +83,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     });
+
+//    btXemDsSv.setOnClickListener(){
+//
+//            }
+
+        }
     }
-}

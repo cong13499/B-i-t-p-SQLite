@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
 public class SinhVienDataBase extends SQLiteOpenHelper {
+
     private static final String DATABASE_NAME = "QUANLYSINHVIEN.db";
     private static final String TABLE_NAME = "SINHVIEN";
     private static final String ID = "ID";
@@ -15,6 +16,7 @@ public class SinhVienDataBase extends SQLiteOpenHelper {
     private static final String GIOITINH = "GT  ";
     private static final String TRUONG = "TRUONG";
     private static final String SOTHICH = "ST";
+
     public SinhVienDataBase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -27,8 +29,8 @@ public class SinhVienDataBase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
+
     public void ThemSinhVien(SinhVienModel svMoi){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -40,5 +42,6 @@ public class SinhVienDataBase extends SQLiteOpenHelper {
 
         database.insert(TABLE_NAME, null,values);
         database.close();
+
     }
 }
